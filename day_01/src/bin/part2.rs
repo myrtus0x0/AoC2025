@@ -20,15 +20,15 @@ fn part2(src_info: &str) -> u32 {
         let old_val = value;
 
         // account for full rotations
-        zeros += absolute_movement / 100;
+        zeros += absolute_movement / max_value;
 
         // get remainder
-        let move_remaining = absolute_movement % 100;
+        let move_remaining = absolute_movement % max_value;
         let movement = move_remaining * direction;
         value += movement;
 
         // did we exceed bounds
-        if value >= 100 || value <= 0 {
+        if value >= max_value || value <= 0 {
             // put back in range
             value = value.rem_euclid(max_value);
 
