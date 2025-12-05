@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 fn merge_ranges(ranges: &mut Vec<(u64, u64)>) {
     if ranges.is_empty() {
         return;
