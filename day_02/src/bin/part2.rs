@@ -6,7 +6,6 @@ fn part2(src_info: &str) -> u64 {
         let lower_bound = range_val.next().unwrap().trim_end().parse::<u64>().unwrap();
         let upper_bound = range_val.next().unwrap().trim_end().parse::<u64>().unwrap();
 
-        println!("parsed range {}-{}", lower_bound, upper_bound);
         for i in lower_bound..=upper_bound {
             if is_valid_id(i) {
                 total += i;

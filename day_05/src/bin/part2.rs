@@ -4,20 +4,24 @@ fn merge_ranges(ranges: &mut Vec<(u64, u64)>) {
     }
 
     // sort by the low values
+    // 3-5, 10-14, 12-18, 16-20
     ranges.sort_by_key(|r| r.0);
     // [(3, 5)]
     let mut merged = vec![ranges[0]];
 
+    // (10, 14), (12, 18)
     for &(low, high) in &ranges[1..] {
-        // (12, 18)
+        // (3, 5)
+        // (10, 14)
         let last = merged.last_mut().unwrap();
-        // if 10 <= 12 +1
+        // if 10 <= 5 + 1
+        // if 12 <= 14 + 1
         if low <= last.1 + 1 {
-            // 12 = 18
+            // 14 = 18
             last.1 = last.1.max(high);
             // (10, 18)
         } else {
-            // [(3, 5), (10, 20)]
+            // [(3, 5), (10, 18)]
             merged.push((low, high));
         }
     }

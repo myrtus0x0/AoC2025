@@ -56,6 +56,8 @@ fn parse_and_transpose(input: &str) -> Vec<Vec<u64>> {
         })
         .collect();
 
+    dbg!(&columns);
+
     for column in columns {
         let size = column[0].len();
         let mut transposed_row: Vec<String> = vec![];
