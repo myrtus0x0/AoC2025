@@ -93,6 +93,7 @@ fn part2(src_info: &str) -> u32 {
         clicks += c_clicks;
     }
 
+    // solution seems to be off by one, no clue why
     return clicks;
 }
 
